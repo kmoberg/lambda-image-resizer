@@ -51,3 +51,15 @@ resource "aws_s3_bucket_policy" "lambda_thumbgenerator_bucket_policy" {
     ]
   })
 }
+
+# Set the lambda function as an event trigger for the S3 bucket
+resource "aws_s3_bucket_notification" "lambda_thumbgenerator_bucket_notification" {
+  bucket = aws_s3_bucket.lambda_thumbgenerator_bucket.id
+
+  lambda_function {
+    lambda_function_arn = aws_lambda_function.thumbgenerator_lambda.arn
+    events              = ["s3:ObjectPut:*"]
+    filter_prefix       = "static/uploads/"
+    filter_suffix       = ".jpg"
+  }
+}
