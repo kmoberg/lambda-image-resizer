@@ -46,7 +46,7 @@ resource "aws_s3_bucket_policy" "lambda_thumbgenerator_bucket_policy" {
         "Effect" : "Allow",
         "Principal" : "*",
         "Action" : "s3:GetObject",
-        "Resource" : "arn:aws:s3:::${var.thumbnail_bucket_name}/static*/"
+        "Resource" : "arn:aws:s3:::${var.thumbnail_bucket_name}/static/*"
       }
     ]
   })
