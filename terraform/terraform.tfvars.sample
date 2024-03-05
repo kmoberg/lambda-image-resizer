@@ -1,0 +1,7 @@
+project_name              = ""
+thumbnail_bucket_name     = ""
+lambda_resizer_name       = ""
+lambda_resizer_layer_name = ""
+aws_region                = "us-east-1"
+environment               = "dev"
+
